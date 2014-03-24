@@ -1,0 +1,12 @@
+server {
+  listen   80;
+  server_name  <%= node['dropbox']['website']['hostname'] %>;
+
+  access_log  <%= node['dropbox']['website']['logdir'] %>/<%= node['dropbox']['website']['hostname'] %>.access.log;
+  error_log   <%= node['dropbox']['website']['logdir'] %>/<%= node['dropbox']['website']['hostname'] %>.error.log;
+
+  location / {
+    root   <%= node['dropbox']['website']['docroot'] %>;
+    index  index.html index.htm;
+  }
+}
